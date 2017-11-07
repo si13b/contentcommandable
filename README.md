@@ -30,6 +30,7 @@ _Is it production ready?_
 No, not yet. It needs;
 
 * Thorough testing;
+	* Dog-fooding -- use in an actual editor or text input implementation
 	* Cross-browser (iOS, Android, Safari, IE11, Edge, FF, Chrome) 
 	* Internationalisation and alternative keyboards
 	* Documented test cases
@@ -37,6 +38,8 @@ No, not yet. It needs;
 * Selection changes should also be sent through as commands
 
 # Installation
+
+Coming soon:
 
 	npm install contentcommandable --save
 

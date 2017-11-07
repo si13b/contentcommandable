@@ -2,6 +2,10 @@ var contentCommandable = (function() {
 	var contentCommandable = function (el, dispatch) {
 		el.onkeypress = nope;
 		el.onkeyup = nope;
+		el.oncut = function (evt) {
+			nope(evt);
+			dispatch(COMMANDS.CUT);
+		};
 		el.onpaste = function (evt) {
 			nope(evt);
 			dispatch(COMMANDS.PASTE);
@@ -13,6 +17,7 @@ var contentCommandable = (function() {
 		};
 
 		// TODO implement addressing and selection commands so users can track it
+		// TODO selectionchange
 
 		el.onkeydown = function(evt) {
 			// Allow non-mutative events to pass through, thanks.
@@ -54,6 +59,7 @@ var contentCommandable = (function() {
 		BACKSPACE: 'BACKSPACE',
 		TEXT: 'TEXT',
 		PASTE: 'PASTE',
+		CUT: 'CUT',
 		DROP: 'DROP',
 		TAB: 'TAB'
 	};
