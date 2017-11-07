@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contentcommandable</title>
+</head>
+<body>
+	<h2>Content editable:</h2>
+	<div id="contentcommandable" contenteditable="true" style="background: #eee;">
+		Hello
+	</div>
+
+	<h2>Commands:</h2>
+	<button onclick="document.querySelector('#buffer').innerHTML = '';">Clear</button>
+	<div id="buffer" style="overflow-y: auto; max-height:500px;"></div>
+
+	<script type="application/javascript">var module = {};</script>
+	<script type="application/javascript" src="contentcommandable.js"></script>
+	<script type="application/javascript">
+		window.onload = function() {
+			var buffer = document.querySelector('#buffer');
+			contentCommandable(document.querySelector('#contentcommandable'), function(msg, arg) {
+				var newItem = document.createElement('div');
+				newItem.innerText = msg + ', ' + arg;
+				buffer.appendChild(newItem);
+				console.log(msg + ', ' + arg);
+				buffer.scrollTop = buffer.scrollHeight;
+			});
+		};
+	</script>
+</body>
+</html>
